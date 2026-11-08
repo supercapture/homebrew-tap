@@ -2,8 +2,8 @@
 # links scap; the app updates itself (Velopack), so the cask says auto_updates and `brew upgrade` leaves it alone.
 # build.sh --push writes version and sha256 at each release.
 cask "supercapture" do
-  version "1.0.455"
-  sha256 "05e525382867c9fcacb793a391c12b2e31debbae25d1372ccda5b8847b0069e1"
+  version "1.0.456"
+  sha256 "dc1acace202ef3ce89df1de5df980f15059c8233f65c552351de2dc8d7730a70"
 
   url "https://github.com/supercapture/releases/releases/download/v#{version}/SuperCapture-osx-Portable.zip",
       verified: "github.com/supercapture/releases/"
@@ -22,6 +22,7 @@ cask "supercapture" do
 
   app "SuperCapture.app"
   binary "#{appdir}/SuperCapture.app/Contents/MacOS/scap"
+  binary "#{appdir}/SuperCapture.app/Contents/MacOS/scap", target: "supercapture"
 
   # Never the library (~/Documents/SuperCapture by default): those are the user's files.
   zap trash: [
@@ -33,4 +34,9 @@ cask "supercapture" do
     "~/Library/Preferences/io.supercapture.desktop.plist",
     "~/Library/WebKit/io.supercapture.desktop",
   ]
+
+  caveats <<~EOS
+    SuperCapture's command line tool is scap, or supercapture. Try: scap help
+    SuperCapture updates itself, so brew upgrade leaves it alone.
+  EOS
 end
