@@ -2,8 +2,8 @@
 # links scap; the app updates itself (Velopack), so the cask says auto_updates and `brew upgrade` leaves it alone.
 # build.sh --push writes version and sha256 at each release.
 cask "supercapture" do
-  version "1.0.462"
-  sha256 "cc18b0ab1866f4564cffbb9feb7c5b4e93b6604e3ecbcc09319f6a38ecdc23d5"
+  version "1.0.463"
+  sha256 "63051b67c69736340900b8ea5a59a93038bb303dad7a9c7bf18fad77e142e4cc"
 
   url "https://github.com/supercapture/releases/releases/download/v#{version}/SuperCapture-osx-Portable.zip",
       verified: "github.com/supercapture/releases/"
